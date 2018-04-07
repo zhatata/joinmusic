@@ -1,0 +1,48 @@
+html
+{
+	height: 100%;
+}
+
+body
+{
+	height: 100%;
+}
+
+.change-page
+{
+	height: 100%;
+}
+
+.page
+{
+
+}
+
+#page1
+{
+
+}
+
+#page2
+{
+	display: none;
+}
+
+#page3
+{
+	display: none;
+}
+
+#userline>div>a
+{
+	padding: 0px 15px;
+}
+
+#userline>div>a>div>img
+{
+	width: 70px;
+	height: 70px;
+	margin-right: 20px;
+	border-radius: 50%;
+	display:block;
+}
