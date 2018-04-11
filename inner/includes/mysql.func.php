@@ -48,6 +48,9 @@ function _is_repeat($_sql, $_info, $_conn){
 	if (_fetch_array($_sql, $_conn)) {
 		_alert($_info);
 	}
+}
 
+function _close($_conn){
+	$_conn -> close();
 }
 ?>

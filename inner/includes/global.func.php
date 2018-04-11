@@ -22,7 +22,17 @@ function _check_code($_first_code, $_end_code){
 /**
 */
 function _location($_info, $_url){
-	echo "<script type='text/javascript'>alert('".$_info."');location.href='".$_url."';</script>";
+	if (empty($_info)) {
+		header('Location:'.$_url);
+	}
+	else{
+		echo "<script type='text/javascript'>alert('".$_info."');location.href='".$_url."';</script>";
+	}
+	
+}
+
+function _session_destroy() {
+	session_destroy();
 }
 
 /**
