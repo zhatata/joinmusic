@@ -1,3 +1,9 @@
+<?php
+define('IN_TG', true);
+
+require dirname(__FILE__).'/includes/common.inc.php';  
+?>
+
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -12,51 +18,75 @@
 	<script type="text/javascript" src="./js/wechat.js"></script>
 </head>
 <body>
-	<div class="weui-cells" id="userline">
-		<div class="weui-cell">
-			<a class="weui-cell weui-cell_access" href="./userinfo.html">
-			<div class="weui-cell__hd"><img src="./images/pic_160.png" alt=""></div>
-			<div class="weui-cell__bd">
-				<p>头像</p>
+	<?php
+	 if (isset($_COOKIE['username'])) {
+	     $_rows = _fetch_array("SELECT we_username,we_wechatid,we_logo,we_birth,we_area,we_reg_time FROM we_user WHERE we_username='{$_COOKIE['username']}'", $_conn);
+		if ($_rows) {
+			$_html = array();
+			$_html['username'] = $_rows['we_username'];
+			$_html['wechatid'] = $_rows['we_wechatid'];
+			$_html['logo'] = $_rows['we_logo'];
+			$_html['birth'] = $_rows['we_birth'];
+			$_html['area'] = $_rows['we_area'];
+			$_html['reg_time'] = $_rows['we_reg_time'];
+					 		
+		}
+		else{
+			_alert('此用户不存在');
+		}?>	
+		<div class="weui-cells" id="userinfo">
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<?php echo '<img src="'.$_html['logo'].'">';?>			
+				</div>
+				<div class="weui-cell__ft">
+					<p>头像</p>
+				</div>
 			</div>
-			</a>
+			<div class="weui-cell">
+			    <div class="weui-cell__bd">
+			        <p><?php echo $_html['username'];?></p>
+			    </div>
+			    <div class="weui-cell__ft">用户名</div>
+			</div>
+			<div class="weui-cell">
+			    <div class="weui-cell__bd">
+			        <p><?php echo $_html['wechatid'];?></p>
+			    </div>
+			    <div class="weui-cell__ft">微信号</div>
+			</div>
+			<div class="weui-cell">
+			    <div class="weui-cell__bd">
+			        <p><?php echo $_html['birth'];?></p>
+			    </div>
+			    <div class="weui-cell__ft">生日</div>
+			</div>
+			<div class="weui-cell">
+			    <div class="weui-cell__bd">
+			        <p><?php echo $_html['area'];?></p>
+			    </div>
+			    <div class="weui-cell__ft">地区</div>
+			</div>
+			<div class="weui-cell">
+			    <div class="weui-cell__bd">
+			        <p><?php echo $_html['reg_time'];?></p>
+			    </div>
+			    <div class="weui-cell__ft">注册时间</div>
+			</div>
 		</div>
-	</div>	
-	<div class="weui-cells">
-		<div class="weui-cell">
-		    <div class="weui-cell__bd">
-		        <p></p>
-		    </div>
-		    <div class="weui-cell__ft">用户名</div>
+		<div class="weui-btn-area">
+	    	<a class="weui-btn weui-btn_primary" href="./userinfoupdate.php" id="showTooltips">修改</a>
 		</div>
-		<div class="weui-cell">
-		    <div class="weui-cell__bd">
-		        <p></p>
-		    </div>
-		    <div class="weui-cell__ft">微信号</div>
-		</div>
-		<div class="weui-cell">
-		    <div class="weui-cell__bd">
-		        <p></p>
-		    </div>
-		    <div class="weui-cell__ft">性别</div>
-		</div>
-		<div class="weui-cell">
-		    <div class="weui-cell__bd">
-		        <p></p>
-		    </div>
-		    <div class="weui-cell__ft">生日</div>
-		</div>
-		<div class="weui-cell">
-		    <div class="weui-cell__bd">
-		        <p></p>
-		    </div>
-		    <div class="weui-cell__ft">地区</div>
-		</div>
-	</div>
-	<div class="weui-btn-area">
-    	<a class="weui-btn weui-btn_primary" href="./userinfoupdate.php" id="showTooltips">修改</a>
-	</div>
+
+	<?php  
+	}else{
+	
+		_location('此用户不存在', 'login.php');
+	}
+
+
+ 	?>
+	
 
 </body>
 </html>

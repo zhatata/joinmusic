@@ -14,10 +14,7 @@ if (!function_exists('_alert')) {
 */
 function _check_username($_string, $_min_num, $_max_num){
 	//去掉头尾空格
-	//echo $_string."oka";
 	$_string = trim($_string);
-	//echo $_string."okb";
-	//echo strlen($_string);
 
 	//判断是否越界
 	if ((mb_strlen($_string) < $_min_num) || (mb_strlen($_string) > $_max_num)) {
@@ -36,9 +33,7 @@ function _check_username($_string, $_min_num, $_max_num){
 		$_mg_string = 
 	}chp1.0*/
 
-	//return mysqli_real_escape_string($localhost, $_string);
 	return $_string;
-	//return _mysql_string($_string);
 }
 
 /**

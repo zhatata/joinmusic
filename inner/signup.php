@@ -13,7 +13,7 @@ require dirname(__FILE__).'/includes/common.inc.php';
  if ($_GET['action'] == 'signup') {
   	
    	//验证码校验
-   //	_check_code($_POST['checkcode'], $_SESSION['checkcode']);
+   	_check_code($_POST['checkcode'], $_SESSION['checkcode']);
 
    	//引入验证文件
    	require ROOT_PATH.'/includes/signup.func.php';
@@ -38,6 +38,7 @@ require dirname(__FILE__).'/includes/common.inc.php';
 	 								we_uniqid,
 	 								we_username,
 	 								we_password,
+	 								we_wechatid,
 	 								we_reg_time
 	 							) 
 	 						VALUES 
@@ -45,6 +46,7 @@ require dirname(__FILE__).'/includes/common.inc.php';
 	 								'{$_clean['uniqid']}',
 	 								'{$_clean['username']}',
 	 								'{$_clean['password']}',
+	 								'{$_clean['wechatid']}',
 	 								'{$_clean['reg_time']}'
 	 							)", $_conn);
 	if ($result) {
