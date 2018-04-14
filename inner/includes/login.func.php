@@ -1,6 +1,14 @@
 <?php
 if (!function_exists('_alert')) {
 	exit('_alert()函数不存在，请检查！');
+}
+
+/**
+ *_setcookies()保存登录的cookie
+*/
+function _setcookies($_username, $_uniqid){
+	setcookie('username', $_username);
+	setcookie('uniqid', $_uniqid);
 } 
 
 /**

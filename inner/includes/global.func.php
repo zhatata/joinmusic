@@ -31,8 +31,38 @@ function _location($_info, $_url){
 	
 }
 
+/**
+ *_session_destroy()关闭会话
+*/
 function _session_destroy() {
 	session_destroy();
+}
+
+/**
+ *_unsetcookies()清除cookie
+*/
+function _unsetcookies(){
+	setcookie('username', '', time()-1);
+	setcookie('uniqid', '', time()-1);
+	_location(null, 'main.php');
+}
+
+/**
+ * _html() 函数表示对字符串进行HTML过滤显示，如果是数组按数组的方式过滤，
+ * 如果是单独的字符串，那么就按单独的字符串过滤
+ * @param unknown_type $_string
+ */
+
+
+function _html($_string) {
+	if (is_array($_string)) {
+		foreach ($_string as $_key => $_value) {
+			$_string[$_key] = _html($_value);   //这里采用了递归，如果不理解，那么还是用htmlspecialchars
+		}
+	} else {
+		$_string = htmlspecialchars($_string);
+	}
+	return $_string;
 }
 
 /**

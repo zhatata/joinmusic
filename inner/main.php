@@ -1,3 +1,9 @@
+<?php
+define('IN_TG', true);
+
+require dirname(__FILE__).'/includes/common.inc.php';  
+?>
+
 <!DOCTYPE html>
 <html lang='zh-CN'>
 <head>
@@ -16,6 +22,23 @@
 	<div class="weui-tab">
 		<!-- 页面切换 -->
 	    <div class="weui-tab__panel">
+			   <!-- 底部导航 -->
+			    <div class="weui-tabbar">
+			        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on" id="tab1">
+			            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+			            <p class="weui-tabbar__label">发现</p>
+			        </a>	     
+			        <a href="musicupload.php" class="weui-tabbar__item" id="tab2">
+			            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+			            <p class="weui-tabbar__label">发布</p>
+			        </a>
+			        <a href="javascript:;" class="weui-tabbar__item" id="tab3">
+			            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+			            <p class="weui-tabbar__label">我</p>
+			        </a>
+			    </div>
+
+
 	    	<!-- 发现页面 -->
 	        <div class="page" id="page1">
 	        	<div class="weui-search-bar" id="search_bar">
@@ -85,18 +108,78 @@
 				</div>
 	        </div>
 	        <!-- 歌曲发布页面 -->
-	        <div class="page" id="page2">Page 2</div>
+	        <div class="page" id="page2">
+
+	        </div>
 
 	        <!-- 个人中心页面 -->
 	        <div class="page" id="page3">
-	        	<div class="login-before">
-	        		
-	        	</div>
-	        	<div>
-				<div class="weui-cells" id="userline">
+	        	<?php
+	        		if (isset($_COOKIE['username'])) {
+	        			$_rows = _fetch_array("SELECT we_username,we_wechatid,we_logo,we_birth,we_reg_time FROM we_user WHERE we_username='{$_COOKIE['username']}'", $_conn);
+					 	if ($_rows) {
+					 		$_html = array();
+					 		$_html['username'] = $_rows['we_username'];
+					 		//$_html['wechatid'] = $_rows['we_wechatid'];
+					 		$_html['logo'] = $_rows['we_logo'];
+					 		//$_html['birth'] = $_rows['we_birth'];
+					 		//$_html['reg_time'] = $_rows['we_reg_time'];
+					 		
+					 	}
+					 	else
+					 		{
+					 			_alert('此用户不存在');
+					 		}
+
+					 	//echo '<img src="'.$_html['we_logo'].'">';
+					 	?>
+					 	<div class="weui-cells" id="userline">
+							<div class="weui-cell">
+								<a class="weui-cell weui-cell_access" href="./userinfo.php">
+									<div class="weui-cell__hd">
+										<?php echo '<img src="'.$_html['logo'].'" alt="">';?>
+									</div>
+									<div class="weui-cell__bd">
+										 <p><?php echo $_html['username'];?></p>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="weui-cells">
+						    <a class="weui-cell weui-cell_access" href="javascript:;">
+						        <div class="weui-cell__bd">
+						            <p>我的收藏</p>
+						        </div>
+						        <div class="weui-cell__ft">
+						        </div>
+						    </a>
+						    <a class="weui-cell weui-cell_access" href="javascript:;">
+						        <div class="weui-cell__bd">
+						            <p>我的发布</p>
+						        </div>
+						        <div class="weui-cell__ft">
+						        </div>
+						    </a>
+						    <a class="weui-cell weui-cell_access" href="javascript:;">
+						        <div class="weui-cell__bd">
+						            <p>我的互动</p>
+						        </div>
+						        <div class="weui-cell__ft">
+						        </div>
+						    </a>
+						</div>
+					 	<?php
+	        		 	echo '<div class="weui-btn-area">
+    							<a class="weui-btn weui-btn_primary" href="./logout.php">退出登录</a>
+							</div>';
+
+
+	        		 } 
+	        		 else {
+	        		 	echo '<div class="weui-cells" id="userline">
 				    <div class="weui-cell">
 				    <a class="weui-cell weui-cell_access" href="./userinfo.php">
-				        <div class="weui-cell__hd"><img src="./images/pic_160.png" alt=""></div>
+				        <div class="weui-cell__hd"><img src="./images/icon_default/m01.png" alt=""></div>
 				        <div class="weui-cell__bd">
 				            <p>用户名</p>
 				        </div>
@@ -129,25 +212,9 @@
 				</div>
      			<div class="weui-btn-area">
     				<a class="weui-btn weui-btn_primary" href="./login.php" id="showTooltips">登陆注册</a>
-				</div>
-	        </div>
-	    </div>
-
-
-	    <!-- 底部导航 -->
-	    <div class="weui-tabbar">
-	        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on" id="tab1">
-	            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">发现</p>
-	        </a>	     
-	        <a href="javascript:;" class="weui-tabbar__item" id="tab2">
-	            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">发布</p>
-	        </a>
-	        <a href="javascript:;" class="weui-tabbar__item" id="tab3">
-	            <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-	            <p class="weui-tabbar__label">我</p>
-	        </a>
+				</div>';
+	        		 }
+	        	?>
 	    </div>
 	</div>
 </div>

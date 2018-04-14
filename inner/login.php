@@ -22,6 +22,7 @@ if ($_GET['action'] == 'login') {
   	if (!!$_rows = _fetch_array("SELECT we_username,we_uniqid FROM we_user WHERE we_username='{$_clean['username']}' and we_password='{$_clean['password']}'", $_conn)) {
   		_close($_conn);
   		_session_destroy();
+  		_setcookies($_clean['username'], $_clean['uniqid']);
   		_location(null, 'main.php');
   	} else{
   		_close($_conn);
