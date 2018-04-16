@@ -13,16 +13,6 @@ body
 	height: 100%;
 }
 
-.page
-{
-
-}
-
-#page1
-{
-
-}
-
 #page2
 {
 	display: none;
@@ -59,3 +49,104 @@ body
 #checkcode{
 	cursor: pointer;
 }
+
+.weui-search-bar__input{
+	text-align: center;
+}
+
+#search{
+	display: inline;
+	width: 28px;
+	height: 28px;
+	left: 90%;
+	color: #b2b2b2;
+	font-size: 14px;
+}
+
+.musiclib{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.musiclib-header{
+	border-bottom: 2px #1aad19 solid;
+}
+
+.musiclib-item{
+	border-bottom: 1px #1aad19 dotted;
+	height: 120px;
+	padding: 10px 0;
+}
+
+.musiclib-item a{
+	color: black;
+	text-decoration: none;
+}
+
+.musiclib-item a:hover{
+	color: orange;
+}
+
+.musiclib-name{
+	font: "Microsoft Yahei" 15px;
+	margin: 1px 0;
+}
+
+.musiclib-singer{
+	font: "Microsoft Yahei" 12px;
+	margin: 1px 0;
+}
+
+.musiclib-album{
+	margin: 1px 0;
+	color: #b2b2b2;
+}
+
+.musiclib-uptime{
+	margin: 1px 0;
+	color: #b2b2b2;
+}
+
+.comment-input{
+	height: 120px;
+	width:100%;
+}
+
+.musicinfo-comment-area input{
+	width: 100px;
+	left: 30%;
+	margin-top: 10px;
+	background-color: #4471f1;
+}
+
+.comment-title{
+	border-bottom: 2px #ff0000 dashed;
+}
+.comment-title p{
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-left: 15px;
+}
+
+.comment-box{
+	border-bottom: 1px #ff0000 dashed;
+}
+
+.comment-id{
+	margin-left: 5px;
+	margin-top:5px; 
+}
+
+.comment-contend{
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.comment-time{
+	text-align: right;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+

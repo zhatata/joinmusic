@@ -64,4 +64,12 @@ $(function(){
 			"color":"#09bb07"
 		});*/
 	});	
-})
+
+	$("#search").bind("click",function(){
+		$("#search_form").submit();
+	});
+
+	$("#music_detail_submit").bind("click",function(){
+		$("#search_form").submit();
+	});
+});

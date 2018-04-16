@@ -42,18 +42,12 @@ require dirname(__FILE__).'/includes/common.inc.php';
 	    	<!-- 发现页面 -->
 	        <div class="page" id="page1">
 	        	<div class="weui-search-bar" id="search_bar">
-				    <form class="weui-search-bar__form">
-				        <div class="weui-search-bar__box">
-				            <i class="weui-icon-search"></i>
-				            <input type="search" class="weui-search-bar__input" id="search_input" placeholder="搜索" />
-				            <a href="javascript:" class="weui-icon-clear" id="search_clear"></a>
-				        </div>
-				        <label for="search_input" class="weui-search-bar__label" id="search_text">
-				            <i class="weui-icon-search"></i>
-				            <span>搜索</span>
-				        </label>
+				    <form class="weui-search-bar__form" id="search_form" method="post" action="musicinfo.php">
+				        <div class="weui-search-bar__box">		    	
+				        <input type="text" class="weui-search-bar__input" id="search_input" name="search" placeholder="搜索" />
+ 				          <a href="javascript:" class="weui-icon-search" id="search"></a>	
+ 				       </div>
 				    </form>
-				    <a href="javascript:" class="weui-search-bar__cancel-btn" id="search_cancel">取消</a>
 				</div>
 				<div class="weui-grids">
 				    <a href="javascript:;" class="weui-grid">
@@ -96,7 +90,7 @@ require dirname(__FILE__).'/includes/common.inc.php';
 				            猜你喜欢
 				        </p>
 				    </a>
-				    <a href="javascript:;" class="weui-grid">
+				    <a href="./musiclib.php" class="weui-grid">
 				        <div class="weui-grid__icon">
 				            <img src="./images/icon_nav_actionSheet.png" alt="">
 				        </div>
@@ -215,7 +209,8 @@ require dirname(__FILE__).'/includes/common.inc.php';
 				</div>';
 	        		 }
 	        	?>
-	    </div>
+	    	</div>
+		</div>
 	</div>
 </div>
 </body>

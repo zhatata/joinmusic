@@ -12,18 +12,21 @@
 		  	//引入验证文件
 			require ROOT_PATH.'/includes/musicupload.func.php';
 		  	
+		  	date_default_timezone_set('Asia/Shanghai');
+
 		  	//空数组存放合法数据
 		  	$_clean = array();
 		  	$_clean['musicname'] = _check_musicname($_POST['musicname'], 1, 40);
 		  	$_clean['album'] = _check_album($_POST['album'], 1, 40);
 		  	$_clean['singer'] = _check_names($_POST['singer'], 1, 20);
-		  	$_clean['composer'] = _check_names($_POST['composer'], 1, 20);
-		  	$_clean['writer'] = _check_names($_POST['writer'], 1, 20);
-		  	$_clean['arrangement'] = _check_names($_POST['arrangement'], 1, 20);
-		  	$_clean['producer'] = _check_names($_POST['producer'], 1, 20);
+		  	$_clean['composer'] = _check_names($_POST['composer'], 0, 20);
+		  	$_clean['writer'] = _check_names($_POST['writer'], 0, 20);
+		  	$_clean['arrangement'] = _check_names($_POST['arrangement'], 0, 20);
+		  	$_clean['producer'] = _check_names($_POST['producer'], 0, 20);
 		  	$_clean['owner'] = $_POST['owner'];
 		  	$_clean['words'] = _check_words($_POST['words'], 255);
 		  	$_clean['up_userid'] = $_userid['we_id'];
+		  	$_clean['up_time'] = date('Y-m-d H:i:s', time());
 		  
 		  	//检查歌曲是否已经存在
 		  	_is_repeat("SELECT we_musicname FROM we_music WHERE we_musicname='{$_clean['musicname']}'", '此歌曲信息已存在', $_conn);
@@ -41,7 +44,8 @@
 		  								we_producer,
 		  								we_owner,
 		  								we_words,
-		  								we_up_userid
+		  								we_up_userid,
+		  								we_up_time
 		  							)
 		  						VALUES
 		  							(
@@ -54,7 +58,8 @@
 		  								'{$_clean['producer']}',
 		  								'{$_clean['owner']}',
 		  								'{$_clean['words']}',
-		  								'{$_clean['up_userid']}'
+		  								'{$_clean['up_userid']}',
+		  								'{$_clean['up_time']}'
 		  							)", $_conn);
 			  if ($result) {
 			  	//跳转并关闭
