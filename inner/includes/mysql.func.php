@@ -39,7 +39,7 @@ function _query($_sql, $_conn){
 /*
 */
 function _fetch_array($_sql, $_conn){
-	return mysqli_fetch_array(_query($_sql, $_conn));
+	return mysqli_fetch_array(_query($_sql, $_conn), MYSQLI_ASSOC);
 }
 
 /*
