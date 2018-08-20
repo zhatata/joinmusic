@@ -23,9 +23,10 @@
 		  	$_clean['writer'] = _check_names($_POST['writer'], 0, 20);
 		  	$_clean['arrangement'] = _check_names($_POST['arrangement'], 0, 20);
 		  	$_clean['producer'] = _check_names($_POST['producer'], 0, 20);
-		  	$_clean['owner'] = $_POST['owner'];
-		  	$_clean['words'] = _check_words($_POST['words'], 255);
+		  	$_clean['source'] = $_POST['source'];
+		  	$_clean['source-url'] = $_POST['source-url'];
 		  	$_clean['up_userid'] = $_userid['we_id'];
+		  	$_clean['logo'] = "./images/album_logo/a04.jpg";
 		  	$_clean['up_time'] = date('Y-m-d H:i:s', time());
 		  
 		  	//检查歌曲是否已经存在
@@ -42,10 +43,11 @@
 		  								we_writer,
 		  								we_arrangement,
 		  								we_producer,
-		  								we_owner,
-		  								we_words,
 		  								we_up_userid,
-		  								we_up_time
+		  								we_up_time,
+		  								we_source1,
+		  								we_source1_url,
+		  								we_logo
 		  							)
 		  						VALUES
 		  							(
@@ -56,10 +58,11 @@
 		  								'{$_clean['writer']}',
 		  								'{$_clean['arrangement']}',
 		  								'{$_clean['producer']}',
-		  								'{$_clean['owner']}',
-		  								'{$_clean['words']}',
 		  								'{$_clean['up_userid']}',
-		  								'{$_clean['up_time']}'
+		  								'{$_clean['up_time']}',
+		  								'{$_clean['source']}',
+		  								'{$_clean['source-url']}',
+		  								'{$_clean['logo']}'
 		  							)", $_conn);
 			  if ($result) {
 			  	//跳转并关闭
@@ -131,13 +134,13 @@
 		    <div class="weui-cell">
 		        <div class="weui-cell__hd"><label class="weui-label">播放渠道</label></div>
 		        <div class="weui-cell__bd">
-		            <input class="weui-input" type="text" name="owner" maxlength="20" placeholder="请输入播放渠道"/>
+		            <input class="weui-input" type="text" name="source" maxlength="20" placeholder="请输入播放渠道"/>
 		        </div>
 		    </div>
 		    <div class="weui-cell">
-		        <div class="weui-cell__hd"><label class="weui-label">歌词</label></div>
+		        <div class="weui-cell__hd"><label class="weui-label">播放链接</label></div>
 		        <div class="weui-cell__bd">
-		            <textarea class="weui-input" type="text" name="words"></textarea>
+		            <input class="weui-input" type="text" name="source-url" maxlength="100" placeholder="请输入播放链接"/>
 		        </div>
 		    </div>
 		</div>

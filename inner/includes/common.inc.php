@@ -1,5 +1,8 @@
 <?php
 
+//时区
+date_default_timezone_set('Asia/Shanghai');
+
 //防止页面恶意调用
 if (!defined('IN_TG')) {
 	exit('Secure Warning!');

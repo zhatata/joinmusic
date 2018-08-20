@@ -63,6 +63,8 @@ body
 	font-size: 14px;
 }
 
+/* 曲库样式 */
+
 .musiclib{
 	text-align: center;
 	vertical-align: middle;
@@ -107,11 +109,8 @@ body
 	color: #b2b2b2;
 }
 
-.comment-input{
-	height: 120px;
-	width:100%;
-}
-
+/* 歌曲详情页样式 */
+	/* 评论区 */
 .musicinfo-comment-area input{
 	width: 100px;
 	left: 30%;
@@ -119,8 +118,14 @@ body
 	background-color: #4471f1;
 }
 
+.comment-input{
+	height: 120px;
+	margin-left: 20px;
+	width: 85%;
+}
+
 .comment-title{
-	border-bottom: 2px #ff0000 dashed;
+	border-bottom: 2px #1aad19 dashed;
 }
 .comment-title p{
 	font-size: 14px;
@@ -130,7 +135,7 @@ body
 }
 
 .comment-box{
-	border-bottom: 1px #ff0000 dashed;
+	border-bottom: 1px #1aad19 dashed;
 }
 
 .comment-id{
@@ -149,4 +154,49 @@ body
 	margin-top: 5px;
 }
 
+	/* 歌曲信息 */
+.musicinfo-basic{
+	font-family: "Microsoft Yahei";
+}
 
+#musicinfo-title{
+	height: 140px;
+}
+
+#musicinfo-title img{
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 120px;
+	width: 120px;
+}
+
+#musicinfo-title div{
+	display: inline-block;
+	height: 120px;
+	margin-top: 10px;
+	margin-left: 10px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bolder;
+	font-size: 18px;
+}
+
+.musicinfo-writers{
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+.musicinfo-source{
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+.musicinfo-source a{
+	text-decoration: none;
+}
+
+.musicinfo-head{
+	width: 100%;
+	height: 6px;
+	background-color: #1aad19;
+}

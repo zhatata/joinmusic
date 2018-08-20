@@ -74,9 +74,7 @@ require dirname(__FILE__).'/includes/common.inc.php';
 			    <div class="weui-cell__ft">注册时间</div>
 			</div>
 		</div>
-		<div class="weui-btn-area">
-	    	<a class="weui-btn weui-btn_primary" href="./userinfoupdate.php" id="showTooltips">修改</a>
-		</div>
+
 
 	<?php  
 	}else{

@@ -11,8 +11,7 @@ do{
 	$_rows[] = $_row;
 	$count ++;
 	$_row = $_result -> fetch_array(MYSQLI_ASSOC);
-} while ($count <10 && $_row);
-/*var_dump($_rows);*/
+} while ($_row);
 ?>
 <!DOCTYPE html>
 <html lang='zh-CN'>
@@ -45,9 +44,10 @@ do{
 			<div><a href="" class="musiclib-singer"><?php echo $_row['we_singer']?></a></div>
 			<div><span class="musiclib-album"><?php echo $_row['we_album']?></span></div>		
 			<div><span class="musiclib-uptime"><?php echo $_row['we_up_time']?></span></div>
-			<form method="post" action="musicinfo.php" name="search_info">
+			<form method="post" action="musicinfo.php">
 				<input type="hidden" name="search" value="<?php echo $_row['we_musicname'];?>">
-				<a href="musicinfo.php" id="music_detail_submit">more>></a>
+				 <a href="musicinfo.php" id="music_detail_submit">more>></a> 
+			<!-- 	<input type="submit" name="search" id="music_detail_submit" value="more>>"> -->
 			</form>
 		</div>
 		<?php	

@@ -37,8 +37,6 @@ require dirname(__FILE__).'/includes/common.inc.php';
 			            <p class="weui-tabbar__label">我</p>
 			        </a>
 			    </div>
-
-
 	    	<!-- 发现页面 -->
 	        <div class="page" id="page1">
 	        	<div class="weui-search-bar" id="search_bar">
@@ -50,62 +48,54 @@ require dirname(__FILE__).'/includes/common.inc.php';
 				    </form>
 				</div>
 				<div class="weui-grids">
-				    <a href="javascript:;" class="weui-grid">
+				    
+				    <a href="dailyrank.php" class="weui-grid">
 				        <div class="weui-grid__icon">
-				            <img src="./images/icon_nav_tab.png" alt="">
-				        </div>
-				        <p class="weui-grid__label">
-				            我的收藏
-				        </p>
-				    </a>
-				    <a href="javascript:;" class="weui-grid">
-				        <div class="weui-grid__icon">
-				            <img src="./images/icon_nav_cell.png" alt="">
-				        </div>
-				        <p class="weui-grid__label">
-				            我的歌单
-				        </p>
-				    </a>
-				    <a href="javascript:;" class="weui-grid">
-				        <div class="weui-grid__icon">
-				            <img src="./images/icon_nav_panel.png" alt="">
+				            <img src="./images/icon_nav_dialog.png" alt="">
 				        </div>
 				        <p class="weui-grid__label">
 				            每日榜单
 				        </p>
 				    </a>
-				    <a href="javascript:;" class="weui-grid">
-				        <div class="weui-grid__icon">
-				            <img src="./images/icon_nav_icons.png" alt="">
-				        </div>
-				        <p class="weui-grid__label">
-				            听歌识曲
-				        </p>
-				    </a>
-				    <a href="javascript:;" class="weui-grid">
+<!-- 				    <a href="musicpush.php" class="weui-grid">
+    <div class="weui-grid__icon">
+        <img src="./images/icon_nav_icons.png" alt="">
+    </div>
+    <p class="weui-grid__label">
+        猜你喜欢
+    </p>
+</a> -->
+				    <a href="./music/index.php" class="weui-grid">
 				        <div class="weui-grid__icon">
 				            <img src="./images/icon_nav_button.png" alt="">
 				        </div>
 				        <p class="weui-grid__label">
-				            猜你喜欢
+				            聚合搜索				       
 				        </p>
 				    </a>
 				    <a href="./musiclib.php" class="weui-grid">
 				        <div class="weui-grid__icon">
-				            <img src="./images/icon_nav_actionSheet.png" alt="">
+				            <img src="./images/icon_nav_article.png" alt="">
 				        </div>
 				        <p class="weui-grid__label">
 				            曲库
 				        </p>
 				    </a>
 
+<!-- 				    <a href="mypost.php" class="weui-grid">
+    <div class="weui-grid__icon">
+        <img src="./images/icon_nav_cell.png" alt="">
+    </div>
+    <p class="weui-grid__label">
+        未完待续
+    </p>
+</a> -->
 				</div>
 	        </div>
 	        <!-- 歌曲发布页面 -->
 	        <div class="page" id="page2">
 
 	        </div>
-
 	        <!-- 个人中心页面 -->
 	        <div class="page" id="page3">
 	        	<?php
@@ -114,18 +104,13 @@ require dirname(__FILE__).'/includes/common.inc.php';
 					 	if ($_rows) {
 					 		$_html = array();
 					 		$_html['username'] = $_rows['we_username'];
-					 		//$_html['wechatid'] = $_rows['we_wechatid'];
 					 		$_html['logo'] = $_rows['we_logo'];
-					 		//$_html['birth'] = $_rows['we_birth'];
-					 		//$_html['reg_time'] = $_rows['we_reg_time'];
 					 		
 					 	}
 					 	else
 					 		{
 					 			_alert('此用户不存在');
 					 		}
-
-					 	//echo '<img src="'.$_html['we_logo'].'">';
 					 	?>
 					 	<div class="weui-cells" id="userline">
 							<div class="weui-cell">
@@ -140,13 +125,6 @@ require dirname(__FILE__).'/includes/common.inc.php';
 							</div>
 						</div>
 						<div class="weui-cells">
-						    <a class="weui-cell weui-cell_access" href="javascript:;">
-						        <div class="weui-cell__bd">
-						            <p>我的收藏</p>
-						        </div>
-						        <div class="weui-cell__ft">
-						        </div>
-						    </a>
 						    <a class="weui-cell weui-cell_access" href="javascript:;">
 						        <div class="weui-cell__bd">
 						            <p>我的发布</p>
@@ -182,13 +160,6 @@ require dirname(__FILE__).'/includes/common.inc.php';
 				</div>
 				<!--<div class="weui-cells__title">带跳转的列表项</div>-->
 				<div class="weui-cells">
-				    <a class="weui-cell weui-cell_access" href="javascript:;">
-				        <div class="weui-cell__bd">
-				            <p>我的收藏</p>
-				        </div>
-				        <div class="weui-cell__ft">
-				        </div>
-				    </a>
 				    <a class="weui-cell weui-cell_access" href="javascript:;">
 				        <div class="weui-cell__bd">
 				            <p>我的发布</p>

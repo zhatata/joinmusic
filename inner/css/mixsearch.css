@@ -1,0 +1,120 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+
+.header{
+	height: 5px;
+	background-color: #1aad19;
+	border: 3px #1aad19 solid;
+}
+
+#search-area {
+	text-align: center;
+	font-family: "Microsoft Yahei";
+	margin-top: 50px;
+}
+
+.search-title p{
+	margin-top: 10px;
+	font-size: 18px;
+	color: #676565;
+}
+
+.search-inputs{
+	margin-top: 30px;
+}
+
+.input-name{
+	height: 35px;
+	width: 80%;
+	border: 2px solid #1aad19;
+	text-align: center;
+	font-family: "Microsoft Yahei";
+}
+
+.search-btn{
+	height: 35px;
+	width: 80%;
+	margin-top: 10px;
+	background-color: #1aad19;
+	color: #ffffff;
+	border: 2px solid #1aad19;
+	cursor: pointer;
+}
+
+input[type="radio"] + label::before {
+	content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    width: 10px;
+    height: 10px;
+    margin: 20px 5px;
+    border-radius: 50%;
+    border: 1px solid #1aad19;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: #1aad19;
+    background-clip: content-box;
+    padding: 2px;
+}
+
+input[type="radio"]{
+	height: 26px;
+	width: 26px;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.musictype p{
+	font-size: 12px;
+	color: #9b9b9b;
+	text-align: center;
+}
+
+#search-result{
+	font-family: "Microsoft Yahei";
+	margin-top: 30px;
+}
+
+
+.result-list span{
+	margin: 5px 0px 5px 12px;
+	height: 30px;
+	width: 30px;
+}
+
+.result-list input{
+	width: 70%;
+	height: 30px;
+}
+
+.result-list a{
+	height: 30px;
+	width: 30px;
+	text-decoration: none;
+	color: black;
+}
+
+.result-show{
+	width: 70%;
+	height: 300px;
+	margin: 20px auto;
+	border: 2px solid #c9c9c9;
+}
+
+.media-play{
+	border: 1px solid #c9c9c9;
+	margin: 10px 0 0 10px;
+	height: 100px;
+	width: 100px;
+	background-image: url(../images/album_logo/a01.jpg);
+	background-size: cover;
+}
+
+.media-control audio{
+	width: 70%;
+	height: 30px;
+}
